@@ -17,15 +17,15 @@ class Card extends Component {
         let rating = this.props.rating;
         if ( rating >= 0.75 ) {
             realColor = 'red';
-            message = 'Very similar'
+            message = 'Very similar idea'
         }
         else if ( rating < 0.75 && rating >= 0.5 ) {
             realColor = 'yellow';
-            message = 'Similar';
+            message = 'Similar idea';
         }
         else {
             realColor = 'green';
-            message = 'Not similar';
+            message = 'Different idea';
         }
         this.setState({
             color: realColor,

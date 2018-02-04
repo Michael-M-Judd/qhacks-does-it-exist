@@ -146,8 +146,7 @@ body {
 
 .card .location {
   color: #A6B0D8;
-  position: relative;
-  left: 1.5rem;
+  display: block;
   font-size: 14px;
 }
 
@@ -233,4 +232,26 @@ body {
     display: block;
     left: 0;
   }
+}
+.error-message {
+  text-align: center;
+}
+/* animations */
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

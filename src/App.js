@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 // import Search from './Search.js';
 import Spinner from 'react-spinkit';
-import Animate from 'react-simple-animate';
+import { CSSTransitionGroup } from 'react-transition-group' // ES6
 import Card from './Card.js';
 import './App.css';
-
-const props = {
-  durationSeconds: 1,
-  startAnimation: true,
-  startStyle: { opacity: 0 },
-  endStyle: { opacity: 1 }
-};
 
 class App extends Component {
 
@@ -20,11 +13,15 @@ class App extends Component {
         title: '',
         tagline: '',
         isLoading: false,
-        results: []}
+        onError: false,
+        ideas: [],
+        names: []}
     ;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 }
+
+
 
   handleChange = (e) => {
     // update state for form changes
@@ -70,38 +67,63 @@ class App extends Component {
           return response.json()
       })
       .then( json => {
-          this.setState({ results: json.idea });
+          this.setState({ 
+            ideas: json.idea,
+            names: json.name });
       })
       .catch( err => {
-          err.text().then( errorMessage => {
           console.log('error getting results...')
-          })
+          this.setState({ onError: true });
       })
     this.setState({ isLoading: false });
   }
 
   render() {
-    const results = this.state.results.map(result => (
-      <Card 
-      image_url={result.image_url}
-      name={result.title}
-      tagline={result.tagline}
-      location={result.origin}
-      rating={result.ideascore}
-      url={result.url}
-      tags={result.tags}
-    />))
+    const ideas = [];
+
+    if (this.state.ideas !== undefined) {
+      const ideas = this.state.ideas.map(result => (
+        <Card 
+        image_url={result.image_url}
+        name={result.title}
+        tagline={result.tagline}
+        location={result.origin}
+        rating={result.ideascore}
+        url={result.url}
+        tags={result.tags}
+      />))
+    }
+
+    const names = [];
+    if (this.state.names && this.state.names.length > 0) {
+      const names = this.state.names.map(result => (
+          <Card 
+          image_url={result.image_url}
+          name={result.title}
+          tagline={result.tagline}
+          location={result.origin}
+          rating={result.namescore}
+          url={result.url}
+          tags={result.tags}
+        />
+      ))
+    }
+    let error = '';
+    if ( this.state.onError ) {
+      error = "Looks like your idea is pretty unique, get hacking!"
+    }
+    else if ( this.state.ideas.length ) {
+      error = 'We found ' + this.state.ideas.length + ' ideas that matched your description'
+    }
 
     return (
       <div className="App">
         <div className="container">
         <section className="background">
-        <Animate {...props} animateOnAddRemove>
         <header className="App-header">
-          <h1 className="App-title">Does it Exist?</h1>
-          <h2>Using contextual machine learning technology, we can search thousands of startups to find if your idea is already implemented</h2>
+          <h1 className="App-title">Hacks²</h1>
+          <h2>Using contextual machine learning technology, we search thousands of startups to find if your idea is already implemented.</h2>
         </header>
-        </Animate>
           
           {/* SEARCH */ }
           <div className="search-form">
@@ -111,7 +133,7 @@ class App extends Component {
                     name="title" 
                     id="title" 
                     type="search"
-                    placeholder="Your app name" 
+                    placeholder="Your app name..." 
                     value={this.state.title} 
                     onChange={this.handleChange}
                 />
@@ -119,7 +141,7 @@ class App extends Component {
                     name="tagline" 
                     id="tagline"
                     type="search"
-                    placeholder="Computer vision for skin cancer diagnosis..." 
+                    placeholder="Idea description..." 
                     value={this.state.tagline}
                     onChange={this.handleChange}
                 />
@@ -148,8 +170,14 @@ class App extends Component {
 
             <section id="search-results">
               <div className="results">
-              
-                {results}
+                <h3 className="error-message">{error}</h3>
+                <CSSTransitionGroup
+                  transitionName="example"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
+                  {ideas}
+                </CSSTransitionGroup>
+                {names}
               </div>
              
           </section>
