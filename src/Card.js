@@ -15,11 +15,11 @@ class Card extends Component {
         let realColor = '';
         let message = '';
         let rating = this.props.rating;
-        if ( rating >= 75 ) {
+        if ( rating >= 0.75 ) {
             realColor = 'red';
             message = 'Very similar'
         }
-        else if ( rating < 75 && rating >= 5 ) {
+        else if ( rating < 0.75 && rating >= 0.5 ) {
             realColor = 'yellow';
             message = 'Similar';
         }
@@ -55,7 +55,7 @@ class Card extends Component {
             <div className="right-align">
                 <div className="rating">
                     <div className={ this.state.color }>
-                        {this.props.rating}
+                        {this.props.rating.toFixed(2)}
                         <span>{this.state.ratingMessage}</span>
                     </div>
                 </div>

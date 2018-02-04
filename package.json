@@ -5,11 +5,15 @@
   "dependencies": {
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "react-simple-animate": "^1.8.0",
+    "react-spinkit": "^3.0.0"
   },
+  "proxy": "http://52.242.38.104:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -2,11 +2,16 @@
 
 body {
   background: #F8FAFF;
+  background-image: url('./background-img.png');
+
 }
 body, h1, h2, h3, h4, p, input, button {
   font-family: 'Work Sans', sans-serif;
   color: #201C38;
   font-weight: 400;
+}
+
+.container {
 }
 
 h1 {
@@ -26,6 +31,7 @@ body {
 }
 
 .search-container {
+  flex-wrap: wrap;
   display: flex;
   background: white;
   -webkit-box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
@@ -33,6 +39,8 @@ body {
   box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
   border-radius: 10px;
   height: 80px;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 #title, #search{
@@ -95,15 +103,14 @@ body {
   text-align: center;
   margin-top: 50px;
 }
-#search-results {
-  display: flex;
-}
+
 .ads {
   flex: 1;
 }
 .results {
-  flex: 3;
-  position: relative;
+  flex-wrap: wrap;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .right-align {
@@ -121,8 +128,16 @@ body {
   font-weight: 600;
 }
 .logo img {
+  object-fit: cover;
   margin: 10px;
-  max-width: 100%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #1491f4; /* Old browsers */
+  background: -moz-linear-gradient(left, #1491f4 0%, #913fe6 99%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #1491f4 0%,#913fe6 99%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #1491f4 0%,#913fe6 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1491f4', endColorstr='#913fe6',GradientType=1 ); /* IE6-9 */
 }
 
 .card .details {
@@ -158,12 +173,46 @@ body {
 }
 
 .link {
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
+  align-self: flex-end;
 }
 .link a {
   font-weight: 600;
   color: #5566ED;
   text-decoration: none;
+}
+
+
+
+/* Mobile stuff */
+@media screen and (max-width: 516px) {
+  .search-btn-container {
+    flex: 1;
+  }
+  #search-btn {
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  #tagline {
+    border-radius: 10px;
+  }
+  .App-header {
+    padding: 10px !important;
+  }
+  .form-control input {
+    display: block;
+
+  }
+  .card .logo {
+    display:initial;
+    flex: 
+  }
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  .card .location {
+    display: block;
+    left: 0;
+  }
 }
