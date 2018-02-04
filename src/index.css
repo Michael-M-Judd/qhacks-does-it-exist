@@ -186,9 +186,13 @@ body {
 /* Mobile stuff */
 @media screen and (max-width: 516px) {
   .search-btn-container {
-    flex: 1;
+    flex: none;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
-  #search-btn {
+
+  #search-btn, #title {
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 20px;
