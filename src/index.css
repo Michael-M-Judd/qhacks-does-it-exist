@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700');
+
+body {
+  background: #F8FAFF;
+}
+body, h1, h2, h3, h4, p, input, button {
+  font-family: 'Work Sans', sans-serif;
+  color: #201C38;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1366px;
+  padding: 10px;
+  margin: 15px auto;
+}
+
+.search-container {
+  display: flex;
+  background: white;
+  -webkit-box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
+  -moz-box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
+  box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
+  border-radius: 10px;
+  height: 80px;
+}
+
+#title, #search{
+  flex: 1;
+}
+#tagline {
+  flex: 3;
+}
+#title {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-right: 1px solid #95989A;
+}
+
+#search-btn {
+  background: #1491f4; /* Old browsers */
+  background: -moz-linear-gradient(left, #1491f4 0%, #913fe6 99%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #1491f4 0%,#913fe6 99%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #1491f4 0%,#913fe6 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1491f4', endColorstr='#913fe6',GradientType=1 ); /* IE6-9 */
+  height: 100%;
+  border: none;
+  color: white;
+  vertical-align: middle;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  font-weight: 600;
+}
+.search-btn-container {
+  flex: 0.7;
+}
+.search-btn-container span {
+  position: relative;
+  bottom: 8px;
+  right: 10px;
+}
+
+.form-control input, .form-control button {
+  border: none;
+  padding: 15px;
+  height: 100%;
+}
+.form-control input:focus {
+  border: none;
+}
+
+.card {
+  background-color: white;
+  -webkit-box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
+  -moz-box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
+  box-shadow: 0px 4px 20px -3px rgba(58,56,77,0.67);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+#results-message {
+  text-align: center;
+  margin-top: 50px;
+}
+#search-results {
+  display: flex;
+}
+.ads {
+  flex: 1;
+}
+.results {
+  flex: 3;
+  position: relative;
+}
+
+.right-align {
+  text-align: right;
+  flex: 1;
+}
+.card .logo {
+  max-width: 150px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.card .title {
+  font-weight: 600;
+}
+.logo img {
+  margin: 10px;
+  max-width: 100%;
+}
+
+.card .details {
+  flex: 3;
+}
+
+.card .location {
+  color: #A6B0D8;
+  position: relative;
+  left: 1.5rem;
+  font-size: 14px;
+}
+
+
+.rating {
+  margin-top: 2.2rem;
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+}
+.rating span {
+  font-size: initial;
+  display: block;
+}
+.red {
+  color: #F65891;
+}
+.yellow {
+  color: #F8C63D;
+}
+.green {
+  color: #30EBB8;
+}
+
+.link {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+.link a {
+  font-weight: 600;
+  color: #5566ED;
+  text-decoration: none;
+}
