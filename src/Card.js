@@ -5,24 +5,22 @@ class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            color: '',
+            color: 'red',
             ratingMessage: ''}
         ;
     }
 
-    componentWillMount() {
+    componentDidMount() {
         // Calculate rating and message
         let realColor = '';
         let message = '';
         let rating = this.props.rating;
-
         if ( rating >= 0.75 ) {
             realColor = 'red';
-            message = 'Very similar idea';
+            message = 'Very similar idea'
         }
         else if ( rating < 0.75 && rating >= 0.5 ) {
             realColor = 'yellow';
-            console.log('It should be yellow');
             message = 'Similar idea';
         }
         else {

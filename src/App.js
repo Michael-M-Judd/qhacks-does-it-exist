@@ -79,20 +79,20 @@ class App extends Component {
   }
 
   render() {
+    const ideas = [];
 
-
-    const ideas = this.state.ideas.map((result, index) => (
-      <Card 
-      key={index}
-      image_url={result.image_url}
-      name={result.title}
-      tagline={result.tagline}
-      location={result.origin}
-      rating={result.ideascore}
-      url={result.url}
-      tags={result.tags}
-    />))
-
+    if (this.state.ideas !== undefined) {
+      const ideas = this.state.ideas.map(result => (
+        <Card 
+        image_url={result.image_url}
+        name={result.title}
+        tagline={result.tagline}
+        location={result.origin}
+        rating={result.ideascore}
+        url={result.url}
+        tags={result.tags}
+      />))
+    }
 
     const names = [];
     if (this.state.names && this.state.names.length > 0) {
@@ -176,9 +176,8 @@ class App extends Component {
                   transitionEnterTimeout={500}
                   transitionLeaveTimeout={300}>
                   {ideas}
-                  {names}
                 </CSSTransitionGroup>
-                
+                {names}
               </div>
              
           </section>
